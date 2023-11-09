@@ -3,7 +3,7 @@ import numpy as np
 
 k = 20
 time_steps = 10000
-eps = 0.3
+eps = 0.03
 ps = np.random.normal(0.5, 0.2, k)
 totreward = 0
 
