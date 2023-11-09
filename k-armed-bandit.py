@@ -24,4 +24,8 @@ for i in range(time_steps):
     qt[action][1] += 1
     totreward += reward
 
-print(f"Reward was {totreward} with epsilon of {eps}.")
+p_error = np.sum(np.absolute((qt[:, 0] - ps)/ ps)) / k
+
+
+print(f"Reward was {totreward} with epsilon of {eps}.\n"
+      f"Average % difference in true vs learned values: {round(p_error * 100, 3)}%")
