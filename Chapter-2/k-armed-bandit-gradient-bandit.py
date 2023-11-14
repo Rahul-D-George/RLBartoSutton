@@ -9,6 +9,7 @@ best = 0
 reward = 0
 avg = 0
 iterations = 100
+bestconf = []
 
 for _ in range(iterations):
     k = 6
@@ -50,6 +51,8 @@ for _ in range(iterations):
 
     if best < totreward:
         best = totreward
+        bestconf = (ht, ps)
 
 print(f"Best scenario had {best}.\n"
-      f"\nAverage scenario had {round(avg / iterations, 3)}")
+      f"\nAverage scenario had {round(avg / iterations, 3)}"
+      f"\nScenario had ht: {bestconf[0]}\nProbs: {bestconf[1]}")
