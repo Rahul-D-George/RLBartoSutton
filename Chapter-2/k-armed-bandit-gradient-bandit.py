@@ -24,15 +24,13 @@ for _ in range(iterations):
 
     avg_reward = 0
 
-
     for i in range(time_steps):
 
         probs = np.array([(np.exp(a) / (np.sum(np.exp(ht)))) for a in ht])
         action = np.random.choice(len(probs), p=probs)
 
-
         reward = evaluater(action, ps)
-        avg_reward = ((avg_reward * i) + reward) / (i+1)
+        avg_reward = ((avg_reward * i) + reward) / (i + 1)
 
         for a, hta in enumerate(ht):
             if a == action:
@@ -40,10 +38,9 @@ for _ in range(iterations):
             else:
                 ht[a] = hta - alpha * (reward - avg_reward) * probs[a]
 
-
-        # Random Walk feature
-        # ps_change = np.random.normal(0, 0.01, k)
-        # ps = ps + ps_change
+        #  Random Walk feature
+        ps_change = np.random.normal(0, 0.01, k)
+        ps = ps + ps_change
 
         totreward += reward
 
