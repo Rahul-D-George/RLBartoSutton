@@ -1,8 +1,8 @@
 import numpy as np
 
 
-def evaluater(ind, probs):
-    return np.random.normal(probs[ind], 0.2)
+def evaluater(ind, stateprobs):
+    return np.random.normal(stateprobs[ind], 0.2)
 
 
 best = 0
